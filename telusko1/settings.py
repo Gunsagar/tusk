@@ -27,7 +27,7 @@ SECRET_KEY = '88+3^+@m2x2krfmz1p&0!pc*!29=65wu7rgs$k$44)&mjok^46'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ 'gunmanbaap.herokuapp.com']
 
 
 # Application definition
