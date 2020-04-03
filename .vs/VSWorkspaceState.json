@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\accounts",
+    "\\assets",
+    "\\calc",
+    "\\media",
+    "\\media\\pics",
+    "\\static",
+    "\\telusko1",
+    "\\tempates",
+    "\\travello",
+    "\\travello\\migrations"
+  ],
+  "SelectedNode": "\\calc\\views.py",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,1 @@
+web: gunicorn telusko1.wsgi
