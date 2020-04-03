@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '88+3^+@m2x2krfmz1p&0!pc*!29=65wu7rgs$k$44)&mjok^46'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['gunmanbaap.herokuapp.com']
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -120,15 +121,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
+PROJECT_ROOT = os.path.join(os.path.abspath(telusko1))
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-                    os.path.join(BASE_DIR, 'static'),
-                    ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+STATICFILES_DIRS = (
+                    os.path.join(PROJECT_ROOT, 'static'),
+                    )
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'assets')
+MEDIA_ROOT = os.path.join(PROJECT_ROOT,'media')
 MEDIA_URL='/media/'
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 import dj_database_url
 db_from_env  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
