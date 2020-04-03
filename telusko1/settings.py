@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import django_heroku
+#import django_heroku
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -27,7 +27,7 @@ SECRET_KEY = '88+3^+@m2x2krfmz1p&0!pc*!29=65wu7rgs$k$44)&mjok^46'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -78,8 +78,15 @@ WSGI_APPLICATION = 'telusko1.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config()
-    
+    'default': {
+   
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': 'telusko1',
+    'USER': 'postgres',
+    'PASSWORD': '1234',
+    'HOST': 'localhost'
+
+    }
 }
 
 
@@ -126,8 +133,7 @@ STATICFILES_DIRS = (
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL='/media/'
-django_heroku.settings(local())
+#django_heroku.settings(local())
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-import dj_database_url
 db_from_env  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
