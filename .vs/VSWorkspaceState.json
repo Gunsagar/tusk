@@ -1,7 +1,6 @@
 {
   "ExpandedNodes": [
     "",
-    "\\accounts",
     "\\assets",
     "\\calc",
     "\\media",
@@ -12,6 +11,6 @@
     "\\travello",
     "\\travello\\migrations"
   ],
-  "SelectedNode": "\\calc\\views.py",
+  "SelectedNode": "\\telusko1\\settings.py",
   "PreviewInSolutionExplorer": false
 }

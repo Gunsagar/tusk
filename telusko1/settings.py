@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,9 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '88+3^+@m2x2krfmz1p&0!pc*!29=65wu7rgs$k$44)&mjok^46'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['gunmanbaap.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,7 +43,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -76,13 +78,8 @@ WSGI_APPLICATION = 'telusko1.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'telusko1',
-        'USER': 'postgres',
-        'PASSWORD':'1234',
-        'HOST': 'localhost'
-    }
+    'default': dj_database_url.config()
+    
 }
 
 
@@ -121,14 +118,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-PROJECT_ROOT = os.path.join(os.path.abspath(telusko1))
+
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-                    os.path.join(PROJECT_ROOT, 'static'),
+                    os.path.join(BASE_DIR, 'static'),
                     )
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'assets')
-MEDIA_ROOT = os.path.join(PROJECT_ROOT,'media')
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL='/media/'
+django_heroku.settings(local())
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 import dj_database_url
 db_from_env  =  dj_database_url.config(conn_max_age=500)
