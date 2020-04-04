@@ -129,10 +129,10 @@ USE_TZ = True
 
 STATIC_URL = 'https://gunmanbaap.herokuapp.com/static/'
 STATICFILES_DIRS = (
-                    os.path.join(BASE_DIR, 'gunmanbaap/static'),
+                    os.path.join(BASE_DIR, 'gunmanbaap.git/static'),
                     )
-STATIC_ROOT = os.path.join(BASE_DIR, 'gunmanbaap/assets')
-MEDIA_ROOT = os.path.join(BASE_DIR,'gunmanbaap/media')
+STATIC_ROOT = os.path.join(BASE_DIR, 'gunmanbaap.git/assets')
+MEDIA_ROOT = os.path.join(BASE_DIR,'gunmanbaap.git/media')
 MEDIA_URL='https://gunmanbaap.herokuapp.com/media/'
 #django_heroku.settings(local())
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
