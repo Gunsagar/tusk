@@ -27,7 +27,7 @@ SECRET_KEY = '88+3^+@m2x2krfmz1p&0!pc*!29=65wu7rgs$k$44)&mjok^46'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [ 'gunmanbaap.herokuapp.com']
+ALLOWED_HOSTS = [ 'gunmanbaap.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -84,7 +85,7 @@ DATABASES = {
     'NAME': 'telusko1',
     'USER': 'postgres',
     'PASSWORD': '1234',
-    'HOST': 'localhost'
+    
 
     }
 }
